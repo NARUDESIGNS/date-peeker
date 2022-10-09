@@ -1,0 +1,21 @@
+.months h2 {
+    margin-bottom: 50px;
+}
+.allMonths {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px 20px;
+}
+
+.month {
+    padding: 10px 7px;
+    border-radius: 7px;
+}
+.month:hover {
+    background-color: #45465a;
+    cursor: pointer;
+}
+
+.allMonths .current-month {
+    background-color: #545776;
+}
