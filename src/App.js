@@ -4,6 +4,7 @@ import Months from './components/Months';
 import Years from './components/Years';
 
 function App() {
+  console.log(Months);
   return (
     <div className="App">
       <Calendar />
