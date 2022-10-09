@@ -1,0 +1,82 @@
+
+.calendar {
+    width: 100%;
+    max-width: 500px;
+    height: fit-content;
+    max-height: 500px;
+    border: 3px solid rgb(148, 156, 234, 52);
+    background-color: #3C3E53;
+    border-radius: 15px;
+    margin: 10% auto;
+    padding: 30px;
+    text-align: center;
+}
+
+.calendar .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    padding: 0 15px;
+    font-weight: bold;
+}
+
+.calendar .month-date {
+    display: flex;
+    align-items: center;
+}
+
+.calendar .month-date p {
+    padding: 10px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+.calendar .month-date p:hover {
+    background-color: #545776;
+}
+
+.btn {
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: #545776;
+    color: inherit;
+    font-weight: bold;
+    padding: 15px 20px;
+    cursor: pointer;
+}
+.btn img {
+    width: 7px;
+}
+.btn:hover {
+    border: 1px solid rgb(148, 156, 234, 52);
+}
+
+.calendar .days-header {
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+    width: 100%;
+    margin-bottom: 20px;
+}
+.calendar .days-header p {
+    font-weight: bold;
+}
+
+.calendar .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar .days p {
+    text-align: center;
+    padding: 32% 0;
+    border-radius: 50%;
+}
+.calendar .days p:hover {
+    cursor: pointer;
+    background-color: #45465a;
+}
+
+.calendar .days p:nth-child(11) {
+    background-color: #545776;
+    font-weight: bold;
+}
