@@ -1,6 +1,6 @@
 
 .calendar {
-    width: 100%;
+    /* width: 100%;
     max-width: 500px;
     height: fit-content;
     max-height: 500px;
@@ -9,7 +9,7 @@
     border-radius: 15px;
     margin: 10% auto;
     padding: 30px;
-    text-align: center;
+    text-align: center; */
 }
 
 .calendar .header {
@@ -68,7 +68,7 @@
 
 .calendar .days p {
     text-align: center;
-    padding: 32% 0;
+    padding: 35% 0;
     border-radius: 50%;
 }
 .calendar .days p:hover {
@@ -76,7 +76,10 @@
     background-color: #45465a;
 }
 
-.calendar .days p:nth-child(11) {
+.calendar .days .current-day {
     background-color: #545776;
     font-weight: bold;
+}
+.calendar .days .current-day:hover {
+    background-color: #545776;
 }

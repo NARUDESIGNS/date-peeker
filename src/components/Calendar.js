@@ -4,9 +4,11 @@ import leftArrow from '../assets/left-arrow.png'
 import rightArrow from '../assets/right-arrow.png'
 
 function Calendar() {
+	const date = new Date()
 	const days = [];
 	for(let i = 1; i <= 31; i++) {
-		days.push( <p key={i}> { i } </p> );
+		if (i === date.getDate()) days.push( <p className="current-day" key={i}> { i } </p> );
+		else days.push( <p key={i}> { i } </p> );
 	}
   return (
     <div className="calendar">
@@ -34,8 +36,6 @@ function Calendar() {
         </section>
 
         <section className="days">
-            {/* List of days of the week */}
-            {/* <Day /> */}
             { days }
         </section>
     </div>
