@@ -66,12 +66,12 @@
     grid-template-columns: repeat(7, 1fr);
 }
 
-.calendar .days p {
+.calendar .days .day {
     text-align: center;
     padding: 35% 0;
     border-radius: 50%;
 }
-.calendar .days p:hover {
+.calendar .days .day:hover {
     cursor: pointer;
     background-color: #45465a;
 }

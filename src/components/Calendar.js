@@ -2,14 +2,37 @@ import React from 'react'
 import './Calendar.css'
 import leftArrow from '../assets/left-arrow.png'
 import rightArrow from '../assets/right-arrow.png'
+import { months, specialMonths } from '../utils/data';
 
-function Calendar() {
+function Calendar({ setCurrentView, selectedMonth, selectedYear, selectedDate }) {
 	const date = new Date()
+  const chosenDate = new Date(selectedDate);
 	const days = [];
-	for(let i = 1; i <= 31; i++) {
-		if (i === date.getDate()) days.push( <p className="current-day" key={i}> { i } </p> );
-		else days.push( <p key={i}> { i } </p> );
+  const monthDays = specialMonths[months[selectedMonth - 1]] || 31; // handle special months' number of days
+
+  const startDate = chosenDate.getDay() || date.getDay();
+  // fill non-start days with blank spaces
+  for(let i = 1; i < startDate; i++) {
+    days.push(<p key={"key" + i}></p>);
+  }
+
+  // fill days
+	for(let i = 1; i <= monthDays; i++) {
+		if (
+      (chosenDate.getFullYear() === date.getFullYear()) && 
+      (chosenDate.getMonth() === date.getMonth()) && 
+      (i === date.getDate())) 
+    {
+      days.push( <p className="current-day day" key={i}> { i } </p> );
+    } else {
+      days.push( <p className="day" key={i}> { i } </p> );
+    }
 	}
+
+  function handleClick(view){
+		setCurrentView(view);
+	}
+
   return (
     <div className="calendar">
         <section className="header">
@@ -17,8 +40,8 @@ function Calendar() {
 							<img src={leftArrow} alt="left arrow icon"/>
 						</button>
 						<div className="month-date">
-							<p className="month">October</p>
-							<p className="year">2022</p>
+							<p onClick={() => handleClick("months")} className="month">{ months[selectedMonth - 1] || "October" }</p>
+							<p onClick={() => handleClick("years")} className="year">{ selectedYear || 2022 }</p>
 						</div>
             <button className="btn">
 							<img src={rightArrow} alt="right arrow icon"/>
