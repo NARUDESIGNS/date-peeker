@@ -1,8 +1,8 @@
 ![](/Design.png)
 
 # Calendee
-This is a simple calendar React app I built for sake of practicing.
-Feel free to contribute if you've got any feature or found any bug.
+This is a simple calendar React app I built for sake of practicing. <br>
+Feel free to contribute if you've got any feature or found any bug. <br>
 You're also welcome to reuse this however you please.
 
 # Contributing to this project
@@ -10,7 +10,7 @@ You are welcome to contribute to this project. Please create a different branch 
 
 `fixes-date-display` 
 
-and then create a PR.
+and then create a PR. <br>
 Thank you.
 
 # Installation
