@@ -1,27 +1,28 @@
 import React from 'react';
 import './Month.css';
+import { months } from '../utils/data';
 
-function Months() {
+function Months({setCurrentView, setSelectedMonth}) {
 	const date = new Date();
-	const months = [
-		"January",
-		"February",
-		"March",
-		"April",
-		"May",
-		"June",
-		"July",
-		"August",
-		"September",
-		"October",
-		"November",
-		"December"
-	];
-
 	const allMonths = [];
+
+	// fill all months
 	for (let i = 0; i < months.length; i++) {
-		if (date.getMonth() === i) allMonths.push(<p className="current-month month" key={i}> { months[i] } </p>);
-		else allMonths.push(<p className="month" key={i}> { months[i] } </p>);
+		if (date.getMonth() === i) {
+			allMonths.push(
+				<p onClick={() => handleClick(i + 1)} className="current-month month" key={i}> { months[i] } </p>
+			);
+		} else {
+			allMonths.push(
+				<p onClick={() => handleClick(i + 1)} className="month" key={i}> { months[i] } </p>
+			);
+		}
+	}
+
+	// select month and go back to calendar view
+	function handleClick(value){
+		setCurrentView("calendar");
+		setSelectedMonth(value);
 	}
 
   return (
