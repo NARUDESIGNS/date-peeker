@@ -10,8 +10,9 @@ function Calendar({ setCurrentView, selectedMonth, selectedYear, selectedDate })
 	const days = [];
   const monthDays = specialMonths[months[selectedMonth - 1]] || 31; // handle special months' number of days
 
-  const startDate = chosenDate.getDay() || date.getDay();
+  let startDate = chosenDate.getDay() || date.getDay();
   // fill non-start days with blank spaces
+  if (chosenDate.getDay() === 0) startDate = 7; // first day returns 0 and so startDate gets current day instead of chosenDate
   for(let i = 1; i < startDate; i++) {
     days.push(<p key={"key" + i}></p>);
   }
