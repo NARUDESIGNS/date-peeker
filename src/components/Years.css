@@ -1,0 +1,23 @@
+.years h2 {
+    margin-bottom: 50px;
+}
+.allYears {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px 20px;
+    height: 350px;
+    overflow-y: scroll;
+}
+
+.year {
+    padding: 10px 7px;
+    border-radius: 7px;
+}
+.year:hover {
+    background-color: #45465a;
+    cursor: pointer;
+}
+
+.allYears .current-year {
+    background-color: #545776;
+}
