@@ -5,6 +5,11 @@ This is a simple calendar React app I built for sake of practicing. <br>
 Feel free to contribute if you've got any feature or found any bug. <br>
 You're also welcome to reuse this however you please.
 
+Also, some improvement features are yet to be added and they include:
+* If you hit `esc` key, return to calendar view
+* Add functionality for arrow buttons
+* Make year input for users to type in year
+
 # Contributing to this project
 You are welcome to contribute to this project. Please create a different branch for your contribution describing the feature or bug you want to fix, for example 
 
