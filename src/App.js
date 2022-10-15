@@ -10,10 +10,14 @@ function App() {
   const [selectedYear, setSelectedYear] = useState("");
   const [selectedMonth, setSelectedMonth] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDay, setSelectedDay] = useState("");
+  const [exportDate, setExportDate] = useState(null);
 
   // initialize dates
   useEffect(() => {
     const date = new Date();
+    setSelectedDay(date.getDate());
+    console.log(date.getMonth());
     setSelectedMonth(date.getMonth() + 1);
     setSelectedYear(date.getFullYear());
   }, []);
@@ -21,32 +25,40 @@ function App() {
   // compute date based on selected month and year
   useEffect(() => {
     setSelectedDate( new Date(`${selectedYear} ${selectedMonth} 01`) );
+    setExportDate( new Date(`${selectedYear} ${selectedMonth} ${selectedDay}`) );
     console.log(selectedDate);
     // eslint-disable-next-line 
-  }, [selectedYear, selectedMonth]);
+  }, [selectedDay, selectedYear, selectedMonth]);
 
   return (
-    <div className="App">
-      { 
-        currentView === "calendar" && 
-        <Calendar 
+    <>
+      <div className="App">
+        { 
+          currentView === "calendar" && 
+          <Calendar 
           setCurrentView={setCurrentView} 
+          selectedDay={selectedDay}
+          setSelectedDay={setSelectedDay}
           selectedMonth={selectedMonth}
+          setSelectedMonth={setSelectedMonth}
           selectedYear={selectedYear}
+          setSelectedYear={setSelectedYear}
           selectedDate={selectedDate}
-        />
-      }
+          />
+        }
 
-      { 
-        currentView === "months" && 
-        <Months setCurrentView={setCurrentView}  setSelectedMonth={setSelectedMonth}/>
-      }
+        { 
+          currentView === "months" && 
+          <Months setCurrentView={setCurrentView}  setSelectedMonth={setSelectedMonth}/>
+        }
 
-      { 
-        currentView === "years" && 
-        <Years setCurrentView={setCurrentView} setSelectedYear={setSelectedYear} />
-      }
-    </div>
+        { 
+          currentView === "years" && 
+          <Years setCurrentView={setCurrentView} setSelectedYear={setSelectedYear} />
+        }
+      </div>
+      <h3 className="selected-date">{ exportDate ? exportDate.toLocaleDateString() : new Date().toLocaleDateString() }</h3>
+    </>
   );
 }
 
