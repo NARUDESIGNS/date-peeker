@@ -4,7 +4,7 @@ import leftArrow from '../assets/left-arrow.png'
 import rightArrow from '../assets/right-arrow.png'
 import { months, specialMonths } from '../utils/data';
 
-function Calendar({ setCurrentView, selectedDay, setSelectedDay, selectedMonth, selectedYear, selectedDate }) {
+function Calendar({ setCurrentView, selectedDay, setSelectedDay, selectedMonth, setSelectedMonth, selectedYear, setSelectedYear, selectedDate }) {
 	const date = new Date()
   const chosenDate = new Date(selectedDate);
 	const days = [];
@@ -35,17 +35,37 @@ function Calendar({ setCurrentView, selectedDay, setSelectedDay, selectedMonth, 
 		setCurrentView(view);
 	}
 
+  // navigate using left and right buttons
+  function navigate(direction) {
+    if (direction === "prev") {
+      if (selectedMonth === 1) {
+        setSelectedMonth(12);
+        setSelectedYear(prevYear => prevYear - 1);
+      } else {
+        setSelectedMonth(nextMonth => nextMonth - 1);
+      }
+    }
+    if (direction === "next") {
+      if (selectedMonth === 12) {
+        setSelectedMonth(1);
+        setSelectedYear(prevYear => prevYear + 1);
+      } else {
+        setSelectedMonth(prevMonth => prevMonth + 1);
+      }
+    }
+  }
+
   return (
     <div className="calendar">
-        <section className="header">
-            <button className="btn"> 
+        <section className="header"> 
+            <button onClick={() => navigate("prev")} className="btn"> 
 							<img src={leftArrow} alt="left arrow icon"/>
 						</button>
 						<div className="month-date">
 							<p onClick={() => handleClick("months")} className="month">{ months[selectedMonth - 1] || "October" }</p>
 							<p onClick={() => handleClick("years")} className="year">{ selectedYear || 2022 }</p>
 						</div>
-            <button className="btn">
+            <button onClick={() => navigate("next")} className="btn">
 							<img src={rightArrow} alt="right arrow icon"/>
 						</button>
         </section>

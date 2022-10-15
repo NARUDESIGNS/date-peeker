@@ -17,7 +17,6 @@ function App() {
   useEffect(() => {
     const date = new Date();
     setSelectedDay(date.getDate());
-    console.log(date.getMonth());
     setSelectedMonth(date.getMonth() + 1);
     setSelectedYear(date.getFullYear());
   }, []);
@@ -26,7 +25,6 @@ function App() {
   useEffect(() => {
     setSelectedDate( new Date(`${selectedYear} ${selectedMonth} 01`) );
     setExportDate( new Date(`${selectedYear} ${selectedMonth} ${selectedDay}`) );
-    console.log(selectedDate);
     // eslint-disable-next-line 
   }, [selectedDay, selectedYear, selectedMonth]);
 
