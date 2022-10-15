@@ -70,12 +70,17 @@
     text-align: center;
     padding: 35% 0;
     border-radius: 50%;
+    border: 1px solid transparent;
 }
 .calendar .days .day:hover {
     cursor: pointer;
     background-color: #45465a;
 }
 
+.calendar .days .selected-day {
+    border: 1px solid rgb(148, 156, 234, 52);
+    font-weight: bold;
+}
 .calendar .days .current-day {
     background-color: #545776;
     font-weight: bold;

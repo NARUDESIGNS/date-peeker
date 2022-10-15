@@ -4,11 +4,12 @@ import leftArrow from '../assets/left-arrow.png'
 import rightArrow from '../assets/right-arrow.png'
 import { months, specialMonths } from '../utils/data';
 
-function Calendar({ setCurrentView, selectedMonth, selectedYear, selectedDate }) {
+function Calendar({ setCurrentView, selectedDay, setSelectedDay, selectedMonth, selectedYear, selectedDate }) {
 	const date = new Date()
   const chosenDate = new Date(selectedDate);
 	const days = [];
   const monthDays = specialMonths[months[selectedMonth - 1]] || 31; // handle special months' number of days
+  // const selectedDay = 3;
 
   let startDate = chosenDate.getDay() || date.getDay();
   // fill non-start days with blank spaces
@@ -24,9 +25,9 @@ function Calendar({ setCurrentView, selectedMonth, selectedYear, selectedDate })
       (chosenDate.getMonth() === date.getMonth()) && 
       (i === date.getDate())) 
     {
-      days.push( <p className="current-day day" key={i}> { i } </p> );
+      days.push( <p onClick={() => setSelectedDay(i)} className="current-day day" key={i}> { i } </p> );
     } else {
-      days.push( <p className="day" key={i}> { i } </p> );
+      days.push( <p onClick={() => setSelectedDay(i)} className={`day ${selectedDay === i ? "selected-day" : null}`} key={i}> { i } </p> );
     }
 	}
 
