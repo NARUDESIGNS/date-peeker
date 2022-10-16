@@ -31,6 +31,7 @@ function Calendar({ setCurrentView, selectedDay, setSelectedDay, selectedMonth, 
     }
 	}
 
+  // set current views
   function handleClick(view){
 		setCurrentView(view);
 	}
