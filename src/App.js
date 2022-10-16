@@ -23,8 +23,10 @@ function App() {
 
   // compute date based on selected month and year
   useEffect(() => {
-    setSelectedDate( new Date(`${selectedYear} ${selectedMonth} 01`) );
-    setExportDate( new Date(`${selectedYear} ${selectedMonth} ${selectedDay}`) );
+    const newSelectedDate = new Date(`${selectedYear} ${selectedMonth} 01`);
+    const newExportDate = new Date(`${selectedYear} ${selectedMonth} ${selectedDay}`);
+    setSelectedDate(newSelectedDate);
+    setExportDate(newExportDate);
     // eslint-disable-next-line 
   }, [selectedDay, selectedYear, selectedMonth]);
 

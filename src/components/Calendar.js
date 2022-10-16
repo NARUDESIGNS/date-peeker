@@ -13,7 +13,7 @@ function Calendar({ setCurrentView, selectedDay, setSelectedDay, selectedMonth, 
 
   let startDate = chosenDate.getDay() || date.getDay();
   // fill non-start days with blank spaces
-  if (chosenDate.getDay() === 0) startDate = 7; // first day returns 0 and so startDate gets current day instead of chosenDate
+  if (chosenDate.getDay() === 0) startDate = 7; // javascript returns 0 - 6 days (as opposed to 1 - 7 days) so we replace 0 with 7
   for(let i = 1; i < startDate; i++) {
     days.push(<p key={"key" + i}></p>);
   }
