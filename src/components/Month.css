@@ -1,5 +1,6 @@
 .months h2 {
     margin-bottom: 50px;
+    user-select: none;
 }
 .allMonths {
     display: grid;
@@ -10,6 +11,7 @@
 .month {
     padding: 10px 7px;
     border-radius: 7px;
+    user-select: none;
 }
 .month:hover {
     background-color: #45465a;

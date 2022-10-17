@@ -16,6 +16,7 @@
 .calendar .month-date p {
     padding: 10px;
     border-radius: 7px;
+    user-select: none;
     cursor: pointer;
 }
 .calendar .month-date p:hover {

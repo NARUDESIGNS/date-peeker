@@ -1,5 +1,6 @@
 .years h2 {
     margin-bottom: 50px;
+    user-select: none;
 }
 .allYears {
     display: grid;
@@ -12,6 +13,7 @@
 .year {
     padding: 10px 7px;
     border-radius: 7px;
+    user-select: none;
 }
 .year:hover {
     background-color: #45465a;
