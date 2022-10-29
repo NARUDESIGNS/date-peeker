@@ -77,3 +77,10 @@
 .calendar .days .current-day:hover {
     background-color: #545776;
 }
+
+
+@media only screen and (max-width: 500px) {
+    .calendar .days .day {
+        padding: 32% 0;
+    }
+}
