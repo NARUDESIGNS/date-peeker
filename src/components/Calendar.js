@@ -63,8 +63,8 @@ function Calendar({ setCurrentView, selectedDay, setSelectedDay, selectedMonth, 
 							<img src={leftArrow} alt="left arrow icon"/>
 						</button>
 						<div className="month-date">
-							<p onClick={() => handleClick("months")} className="month">{ months[selectedMonth - 1] || "October" }</p>
-							<p onClick={() => handleClick("years")} className="year">{ selectedYear || 2022 }</p>
+            <p onClick={() => handleClick("months")} className="month">{ months[selectedMonth - 1] || months[new Date().getMonth()] }</p>
+              <p onClick={() => handleClick("years")} className="year">{ selectedYear || new Date().getFullYear() }</p>
 						</div>
             <button onClick={() => navigate("next")} className="btn">
 							<img src={rightArrow} alt="right arrow icon"/>
