@@ -18,6 +18,7 @@ const specialMonths = {
     "February": 28,
     "April": 30,
     "June": 30,
+    "September": 30,
     "November": 30
 }
 
